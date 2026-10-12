@@ -163,5 +163,5 @@ La señal compara el último precio con el **promedio móvil** de la ventana del
 
 ## Autor
 
-**Manuel Martínez** · Data Analyst
-[LinkedIn](#) · [GitHub](#)
+Manuel Martínez · Data Analyst
+[LinkedIn](https://www.linkedin.com/in/manuelmartinez92)
