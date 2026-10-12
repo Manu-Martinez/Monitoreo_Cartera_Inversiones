@@ -118,7 +118,9 @@ La señal compara el último precio con el **promedio móvil** de la ventana del
 | 3. Señales | Gráfico combinado precio vs. promedio móvil de 15 días y tabla de señales con semáforo. |
 | 4. Pipeline log | KPIs (filas, corridas, errores), volumen diario por función y tabla de auditoría. |
 
-> Agregá capturas en `/docs/img/` y enlazalas acá: `![Página 1](docs/img/pagina_1.png)`
+> Agregá capturas en `/docs/img/` y enlazalas acá: `![Página 1](docs/img/pagina_1.PNG)`
+> `![Página 1](docs/img/pagina_2.PNG)`
+> `![Página 1](docs/img/pagina_3.PNG)`
 
 ## Decisiones y aprendizajes
 
