@@ -1,0 +1,5 @@
+perfil,ventana_dias,umbral_compra_pct,umbral_venta_pct
+conservador,30,-8,8
+moderado,15,-5,5
+agresivo,7,-3,3
+alerta_critica,15,-15,15

@@ -1,0 +1,6 @@
+fecha_hora,funcion,fuente,filas_procesadas,estado,detalle
+2026-09-08 17:41:00,actualizarPreciosCartera,data912,5,OK,0 filas con error
+2026-09-08 16:57:44,actualizarTopInversiones,fmp,30,OK,0 items con error
+2026-09-09 17:41:00,actualizarPreciosCartera,data912,4,OK_CON_ERRORES,1 filas con error
+2026-09-10 16:57:00,actualizarTopInversiones,fmp,0,ERROR,Estructura inesperada en gainer
+2026-10-10 17:41:00,generarSeñales,Mi_Portafolio_Historico,9,OK,0 alertas críticas
