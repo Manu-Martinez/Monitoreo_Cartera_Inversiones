@@ -1,0 +1,36 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Secretos y credenciales (por si más adelante agregás IOL u otras APIs)
+.env
+.env.*
+*.key
+credentials.json
+token.json
+
+# clasp (si sincronizás Apps Script)
+.clasp.json
+.claspignore
+node_modules/
+
+# Power BI: archivos temporales y cache
+*.pbix.tmp
+.pbi/
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Datos reales (subí solo data/sample/)
+data/*
+!data/sample/
+!data/schema.md
+
+# Temporales
+*.log
+*.tmp
+~$*
