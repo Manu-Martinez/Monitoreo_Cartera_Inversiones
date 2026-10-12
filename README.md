@@ -23,7 +23,15 @@ Arquitectura
 Enfoque de ingeniería de datos
 ------------------------------
 
-AspectoCómo se resuelve en el proyecto**Ingesta**Dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.**Orquestación**Triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).**Capas de datos**Históricos _append-only_ con los datos tal como llegan (capa cruda) → columnas derivadas y señales (capa transformada) → modelo semántico y medidas DAX en Power BI (capa de consumo). Es un equivalente conceptual de la arquitectura medallón.**Calidad de datos**Validación de estructura de la respuesta, de símbolos sin coincidencia y de precios inválidos, con descarte del ítem sin cortar el resto del proceso.**Observabilidad**Log por corrida (\_pipeline\_log) y detalle por ítem fallido (\_detalle\_errores), ambos conectados al dashboard (página 4).**Resiliencia**Reintentos con espera progresiva ante fallos transitorios de las APIs.**Gestión de secretos**La API key vive en las propiedades del script, nunca en el código, y las URLs se registran sin el query string para no filtrarla en los logs.**Contratos de datos**Esquema documentado por hoja y una convención única de unidades (fracciones decimales), definida después de detectar inconsistencias entre fuentes (ver _Decisiones y aprendizajes_).
+Enfoque de ingeniería de datos
+Ingesta: dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.
+Orquestación: triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).
+Capas de datos: históricos append-only con los datos tal como llegan (capa cruda), columnas derivadas y señales (capa transformada), y modelo semántico con medidas DAX en Power BI (capa de consumo). Es un equivalente conceptual de la arquitectura medallón.
+Calidad de datos: validación de estructura de la respuesta, de símbolos sin coincidencia y de precios inválidos, con descarte del ítem sin cortar el resto del proceso.
+Observabilidad: log por corrida (_pipeline_log) y detalle por ítem fallido (_detalle_errores), ambos conectados al dashboard (página 4).
+Resiliencia: reintentos con espera progresiva ante fallos transitorios de las APIs.
+Gestión de secretos: la API key vive en las propiedades del script, nunca en el código, y las URLs se registran sin el query string para no filtrarla en los logs.
+Contratos de datos: esquema documentado por hoja y una convención única de unidades (fracciones decimales), definida después de detectar inconsistencias entre fuentes (ver Decisiones y aprendizajes).
 
 Stack
 -----
@@ -52,7 +60,10 @@ HojaColumnasMi\_Portafolio\_Manualsimbolo, cantidad, tipo\_instrumentoMi\_Portaf
 Scripts
 -------
 
-FunciónQué haceactualizarPreciosCartera()Lee la cartera, busca cada símbolo en su fuente según el tipo de instrumento y guarda precio y valorizado en el histórico.actualizarTopInversiones()Trae los 10 primeros de gainers, losers y most actives de FMP y los guarda en el histórico.backfillVariacionAcumulada()Calcula la variación acumulada de cada símbolo contra su primer precio registrado.generarSeñales()Compara el último precio contra el promedio móvil de cada perfil y emite la señal. Envía un mail si algún activo supera el umbral crítico.fetchConReintentos()Reintentos con espera progresiva ante fallos transitorios de las APIs.
+La función actualizarPreciosCartera() lee la cartera, busca cada símbolo en su fuente según el tipo de instrumento y guarda precio y valorizado en el histórico.
+Por su parte, actualizarTopInversiones() trae los 10 primeros de gainers, losers y most actives de FMP y los guarda en el histórico.
+Luego, backfillVariacionAcumulada() calcula la variación acumulada de cada símbolo contra su primer precio registrado.
+La función generarSeñales() compara el último precio contra el promedio móvil de cada perfil y emite la señal. Envía un mail si algún activo supera el umbral crítico. Finalmente, fetchConReintentos() es uan función que genera reintentos con espera progresiva ante fallos transitorios de las APIs.
 
 ### Manejo de errores
 
