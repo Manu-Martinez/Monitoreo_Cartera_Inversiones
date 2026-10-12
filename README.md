@@ -27,7 +27,7 @@ flowchart LR
 
 
 ## Enfoque de ingeniería de datos
-=======
+
 Enfoque de ingeniería de datos
 *   **Ingesta**: dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.
 *   **Orquestación**: triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).
