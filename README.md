@@ -25,7 +25,7 @@ flowchart LR
     E --> H[Alerta crítica por mail]
 ```
 
-<<<<<<< HEAD
+
 ## Enfoque de ingeniería de datos
 =======
 Enfoque de ingeniería de datos
@@ -37,7 +37,7 @@ Calidad de datos: validación de estructura de la respuesta, de símbolos sin co
 *   **Resiliencia**: reintentos con espera progresiva ante fallos transitorios de las APIs.
 *   **Gestión de secretos**: la API key vive en las propiedades del script, nunca en el código, y las URLs se registran sin el query string para no filtrarla en los logs.
 *   **Contratos de datos**: esquema documentado por hoja y una convención única de unidades (fracciones decimales), definida después de detectar inconsistencias entre fuentes (ver Decisiones y aprendizajes).
->>>>>>> 5137f900a41424e6e6ebf912b527c16d9ff1992b
+
 
 - **Ingesta:** dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.
 - **Orquestación:** triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).
@@ -76,7 +76,6 @@ La API key de FMP se guarda en las propiedades del script (`PropertiesService`),
 | `_pipeline_log` | fecha_hora, funcion, fuente, filas_procesadas, estado, detalle |
 | `_detalle_errores` | fecha_hora, funcion, simbolo, tipo_error, detalle |
 
-<<<<<<< HEAD
 ## Scripts
 
 | Función | Qué hace |
@@ -86,12 +85,6 @@ La API key de FMP se guarda en las propiedades del script (`PropertiesService`),
 | `backfillVariacionAcumulada()` | Calcula la variación acumulada de cada símbolo contra su primer precio registrado. |
 | `generarSeñales()` | Compara el último precio contra el promedio móvil de cada perfil y emite la señal. Envía un mail si algún activo supera el umbral crítico. |
 | `fetchConReintentos()` | Reintentos con espera progresiva ante fallos transitorios de las APIs. |
-=======
-La función actualizarPreciosCartera() lee la cartera, busca cada símbolo en su fuente según el tipo de instrumento y guarda precio y valorizado en el histórico.
-Por su parte, actualizarTopInversiones() trae los 10 primeros de gainers, losers y most actives de FMP y los guarda en el histórico.
-Luego, backfillVariacionAcumulada() calcula la variación acumulada de cada símbolo contra su primer precio registrado.
-La función generarSeñales() compara el último precio contra el promedio móvil de cada perfil y emite la señal. Envía un mail si algún activo supera el umbral crítico. Finalmente, fetchConReintentos() es uan función que genera reintentos con espera progresiva ante fallos transitorios de las APIs.
->>>>>>> 5137f900a41424e6e6ebf912b527c16d9ff1992b
 
 ### Manejo de errores
 
