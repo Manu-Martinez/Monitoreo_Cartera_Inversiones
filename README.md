@@ -24,14 +24,14 @@ Enfoque de ingeniería de datos
 ------------------------------
 
 Enfoque de ingeniería de datos
-Ingesta: dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.
-Orquestación: triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).
-Capas de datos: históricos append-only con los datos tal como llegan (capa cruda), columnas derivadas y señales (capa transformada), y modelo semántico con medidas DAX en Power BI (capa de consumo). Es un equivalente conceptual de la arquitectura medallón.
+*   **Ingesta**: dos fuentes con formatos distintos (data912 y FMP), consumidas por API y normalizadas a un esquema común en cada corrida.
+*   **Orquestación**: triggers diarios de Apps Script, con una función por etapa (ingesta, transformación, señales).
+*   **Capas de datos**: históricos append-only con los datos tal como llegan (capa cruda), columnas derivadas y señales (capa transformada), y modelo semántico con medidas DAX en Power BI (capa de consumo). Es un equivalente conceptual de la arquitectura medallón.
 Calidad de datos: validación de estructura de la respuesta, de símbolos sin coincidencia y de precios inválidos, con descarte del ítem sin cortar el resto del proceso.
-Observabilidad: log por corrida (_pipeline_log) y detalle por ítem fallido (_detalle_errores), ambos conectados al dashboard (página 4).
-Resiliencia: reintentos con espera progresiva ante fallos transitorios de las APIs.
-Gestión de secretos: la API key vive en las propiedades del script, nunca en el código, y las URLs se registran sin el query string para no filtrarla en los logs.
-Contratos de datos: esquema documentado por hoja y una convención única de unidades (fracciones decimales), definida después de detectar inconsistencias entre fuentes (ver Decisiones y aprendizajes).
+*   **Observabilidad**: log por corrida (_pipeline_log) y detalle por ítem fallido (_detalle_errores), ambos conectados al dashboard (página 4).
+*   **Resiliencia**: reintentos con espera progresiva ante fallos transitorios de las APIs.
+*   **Gestión de secretos**: la API key vive en las propiedades del script, nunca en el código, y las URLs se registran sin el query string para no filtrarla en los logs.
+*   **Contratos de datos**: esquema documentado por hoja y una convención única de unidades (fracciones decimales), definida después de detectar inconsistencias entre fuentes (ver Decisiones y aprendizajes).
 
 Stack
 -----
